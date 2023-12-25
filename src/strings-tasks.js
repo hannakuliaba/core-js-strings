@@ -19,8 +19,11 @@
  *   getStringLength(null) => 0
  *   getStringLength(undefined) => 0
  */
-function getStringLength(/* value */) {
-  throw new Error('Not implemented');
+function getStringLength(value) {
+  if (!value) {
+    return 0;
+  }
+  return value.length;
 }
 
 /**
@@ -38,6 +41,10 @@ function getStringLength(/* value */) {
  *   isString(new String('test')) => true
  */
 function isString(/* value */) {
+  /*   if (typeof value === 'string') {
+    return true;
+  }
+  return false; */
   throw new Error('Not implemented');
 }
 
@@ -130,8 +137,11 @@ function removeTrailingWhitespaces(/* value */) {
  *   repeatString('', 3) => ''
  *   repeatString('abc', -2) => ''
  */
-function repeatString(/* str, times */) {
-  throw new Error('Not implemented');
+function repeatString(str, times) {
+  if (times <= 0) {
+    return '';
+  }
+  return str.repeat(times);
 }
 
 /**
