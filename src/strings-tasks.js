@@ -40,12 +40,12 @@ function getStringLength(value) {
  *   isString('test') => true
  *   isString(new String('test')) => true
  */
-function isString(/* value */) {
-  /*   if (typeof value === 'string') {
+function isString(value) {
+  if (typeof value === 'string' || value instanceof String) {
     return true;
   }
-  return false; */
-  throw new Error('Not implemented');
+  return false;
+  /*   throw new Error('Not implemented'); */
 }
 
 /**
@@ -196,8 +196,18 @@ function removeLastOccurrences(str, value) {
  *   sumOfCodes('') => 0
  *   sumOfCodes() => 0
  */
-function sumOfCodes(/* str */) {
-  throw new Error('Not implemented');
+function sumOfCodes(str) {
+  if (!str) {
+    return 0;
+  }
+  let i = 0;
+  let sum = 0;
+  while (i <= str.length - 1) {
+    const code = str.charCodeAt(i);
+    sum += code;
+    i += 1;
+  }
+  return sum;
 }
 
 /**
@@ -332,16 +342,17 @@ function countVowels(/* str */) {
  *   isPalindrome('No lemon, no melon') => true
  */
 function isPalindrome(/* str */) {
-  /*   function reverse(s) {
-    let i = 0;
-    let reverseStr = '';
-    while (i < s.length) {
-      reverseStr = `${s[i]}${reverseStr}`;
-      i += 1;
+  /*   const noWhiteSpaces = str.replace(/\s+/g, ''); */
+  /* 	const lowerStr = str.toLowerCase();
+	let length 
+  let i = 0;
+  while (i < lowerStr.length) {
+    if (lowerStr[i] !== lowerStr[lowerStr.length - i - 1]) {
+      return false;
     }
+    i += 1;
   }
-  const lowerStr = str.toLowerCase();
-  return lowerStr === reverse(lowerStr); */
+  return true; */
   throw new Error('Not implemented');
 }
 
